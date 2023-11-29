@@ -36,10 +36,10 @@ class Main {
             public void keyPressed(KeyEvent e) {
                 int keyCode = e.getKeyCode();
                 switch (keyCode) {
-                    case 87: textOut.setText("W Pressed"); break;
-                    case 65: textOut.setText("A Pressed"); break;
-                    case 83: textOut.setText("S Pressed"); break;
-                    case 68: textOut.setText("D Pressed"); break;
+                    case 87: p.setLocation(p.getX(), (p.getY()-10)); break;
+                    case 65: p.setLocation(p.getX()-10, p.getY()); break;
+                    case 83: p.setLocation(p.getX(), (p.getY()+10)); break;
+                    case 68: p.setLocation(p.getX()+10, (p.getY())); break;
                     default: break;
                 }
             }
