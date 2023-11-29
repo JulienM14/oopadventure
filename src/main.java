@@ -3,14 +3,18 @@ package src;
 import src.constants.WindowConstants;
 import javax.swing.*;
 
+import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.event.*;
 
 class Main {
     public static JFrame window = new JFrame("Game");
+    public MyPanel p;
     
 
-    public static void main(String[] args) {
+    public void main(String[] args) {
         windowCreator();
+        Draw();
         
     }
 
@@ -31,5 +35,17 @@ class Main {
         });
         window.setVisible(true);
     }
+    public void Draw(){  
+        Container c = window.getContentPane();    
+        // set the LayoutManager
+        c.setLayout(new BorderLayout());        
+        p = new MyPanel();    
+        // add MyPanel object into container    
+        c.add(p);    
+        // sets close behavior; EXIT_ON_CLOSE invokes System.exit(0) on closing the JFrame
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+    }
+
 }
+
 
