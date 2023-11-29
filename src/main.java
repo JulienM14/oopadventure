@@ -9,10 +9,10 @@ import java.awt.event.*;
 
 class Main {
     public static JFrame window = new JFrame("Game");
-    public MyPanel p;
+    public static MyPanel p;
     
 
-    public void main(String[] args) {
+    public static void main(String[] args) {
         windowCreator();
         Draw();
         
@@ -35,7 +35,7 @@ class Main {
         });
         window.setVisible(true);
     }
-    public void Draw(){  
+    public static void Draw(){  
         Container c = window.getContentPane();    
         // set the LayoutManager
         c.setLayout(new BorderLayout());        
