@@ -6,6 +6,9 @@ import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.event.*;
+import java.io.*;
+
+import javax.sound.sampled.*;
 
 class Main {
     public static JFrame window = new JFrame("Game");
@@ -13,8 +16,6 @@ class Main {
     public Player player = new Player("Testing");
     public static MyPanel p;
     public static Container c;
-    
-
     public static void main(String[] args) {
         windowCreator();
         Draw();
@@ -67,6 +68,23 @@ class Player {
     public Player(String name) {
         this.name = name;
         inventory[0] = "Map";
+    }
+}
+
+class SoundPlayer implements LineListener {
+    boolean isPlaybackCompleted;
+    InputStream inputStream = getClass().getClassLoader().getResourceAsStream("src\\music\\music1.mp3");
+    
+
+    @Override
+    public void update(LineEvent event) {
+        if (LineEvent.Type.START == event.getType()) {
+            System.out.println("Playback Started");
+        }
+        else if (LineEvent.Type.STOP == event.getType()) {
+            isPlaybackCompleted = true;
+            System.out.println("Playback Completed.");
+        }
     }
 }
 
