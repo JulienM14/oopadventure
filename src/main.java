@@ -13,6 +13,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.io.*;
+
+import javax.sound.sampled.*;
 
 class Main {
     public static JFrame window = new JFrame("Game");
@@ -25,6 +28,7 @@ class Main {
 
     
 
+    public static Container c;
     public static void main(String[] args) {
         windowCreator();
         Draw();
@@ -54,10 +58,10 @@ class Main {
             public void keyPressed(KeyEvent e) {
                 int keyCode = e.getKeyCode();
                 switch (keyCode) {
-                    case 87: textOut.setText("W Pressed"); break;
-                    case 65: textOut.setText("A Pressed"); break;
-                    case 83: textOut.setText("S Pressed"); break;
-                    case 68: textOut.setText("D Pressed"); break;
+                    case 87: p.setLocation(p.getX(), (p.getY() - 10)); break;
+                    case 65: p.setLocation(p.getX() - 10, p.getY()); break;
+                    case 83: p.setLocation(p.getX(), (p.getY() + 10)); break;
+                    case 68: p.setLocation(p.getX() + 10, (p.getY())); break;
                     default: break;
                 }
             }
@@ -65,7 +69,7 @@ class Main {
         window.setVisible(true);
     }
     public static void Draw(){  
-        Container c = window.getContentPane();    
+        c = window.getContentPane();    
         // set the LayoutManager
         c.setLayout(new BorderLayout());        
         p = new MyPanel();    
@@ -89,6 +93,23 @@ class Player {
     public Player(String name) {
         this.name = name;
         inventory[0] = "Map";
+    }
+}
+
+class SoundPlayer implements LineListener {
+    boolean isPlaybackCompleted;
+    InputStream inputStream = getClass().getClassLoader().getResourceAsStream("src\\music\\music1.mp3");
+    
+
+    @Override
+    public void update(LineEvent event) {
+        if (LineEvent.Type.START == event.getType()) {
+            System.out.println("Playback Started");
+        }
+        else if (LineEvent.Type.STOP == event.getType()) {
+            isPlaybackCompleted = true;
+            System.out.println("Playback Completed.");
+        }
     }
 }
 
