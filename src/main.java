@@ -24,11 +24,9 @@ class Main {
     public static MyPanel p;
     public static String hero = "src\\Sprites\\Hero.png";
     public static BufferedImage image;
-        
-
-    
 
     public static Container c;
+
     public static void main(String[] args) {
         windowCreator();
         Draw();
@@ -38,16 +36,13 @@ class Main {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        
-        
-        
+
     }
 
     public static void windowCreator() {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } 
-        catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException
                 | UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
@@ -58,30 +53,42 @@ class Main {
             public void keyPressed(KeyEvent e) {
                 int keyCode = e.getKeyCode();
                 switch (keyCode) {
-                    case 87: p.setLocation(p.getX(), (p.getY() - 10)); break;
-                    case 65: p.setLocation(p.getX() - 10, p.getY()); break;
-                    case 83: p.setLocation(p.getX(), (p.getY() + 10)); break;
-                    case 68: p.setLocation(p.getX() + 10, (p.getY())); break;
-                    default: break;
+                    case 87:
+                        p.setLocation(p.getX(), (p.getY() - 10));
+                        break;
+                    case 65:
+                        p.setLocation(p.getX() - 10, p.getY());
+                        break;
+                    case 83:
+                        p.setLocation(p.getX(), (p.getY() + 10));
+                        break;
+                    case 68:
+                        p.setLocation(p.getX() + 10, (p.getY()));
+                        break;
+                    default:
+                        break;
                 }
             }
         });
         window.setVisible(true);
     }
-    public static void Draw(){  
-        c = window.getContentPane();    
+
+    public static void Draw() {
+        c = window.getContentPane();
         // set the LayoutManager
-        c.setLayout(new BorderLayout());        
-        p = new MyPanel();    
-        // add MyPanel object into container    
-        c.add(p);    
-        // sets close behavior; EXIT_ON_CLOSE invokes System.exit(0) on closing the JFrame
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        c.setLayout(new BorderLayout());
+        p = new MyPanel();
+        // add MyPanel object into container
+        c.add(p);
+        // sets close behavior; EXIT_ON_CLOSE invokes System.exit(0) on closing the
+        // JFrame
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    public static void Image() throws IOException{
-         image = ImageIO.read(new File(hero));
-         Graphics g = p.getGraphics();
-         g.drawImage(image, 100, 100, p);
+
+    public static void Image() throws IOException {
+        image = ImageIO.read(new File(hero));
+        Graphics g = p.getGraphics();
+        g.drawImage(image, 100, 100, p);
     }
 
 }
@@ -90,26 +97,9 @@ class Player {
     String name;
     String[] inventory = new String[15];
     int lives;
+
     public Player(String name) {
         this.name = name;
         inventory[0] = "Map";
     }
 }
-
-class SoundPlayer implements LineListener {
-    boolean isPlaybackCompleted;
-    InputStream inputStream = getClass().getClassLoader().getResourceAsStream("src\\music\\music1.mp3");
-    
-
-    @Override
-    public void update(LineEvent event) {
-        if (LineEvent.Type.START == event.getType()) {
-            System.out.println("Playback Started");
-        }
-        else if (LineEvent.Type.STOP == event.getType()) {
-            isPlaybackCompleted = true;
-            System.out.println("Playback Completed.");
-        }
-    }
-}
-
