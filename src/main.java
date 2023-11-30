@@ -1,22 +1,40 @@
 package src;
 
 import src.constants.WindowConstants;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Graphics;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.Field;
 
 class Main {
     public static JFrame window = new JFrame("Game");
     public static JLabel textOut = new JLabel("Null");
     public Player player = new Player("Testing");
     public static MyPanel p;
+    public static String hero = "src\\Sprites\\Hero.png";
+    public static BufferedImage image;
+        
+
     
 
     public static void main(String[] args) {
         windowCreator();
         Draw();
+        try {
+            Image();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
         
         
     }
@@ -55,6 +73,11 @@ class Main {
         c.add(p);    
         // sets close behavior; EXIT_ON_CLOSE invokes System.exit(0) on closing the JFrame
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+    }
+    public static void Image() throws IOException{
+         image = ImageIO.read(new File(hero));
+         Graphics g = p.getGraphics();
+         g.drawImage(image, 100, 100, p);
     }
 
 }
