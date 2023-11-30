@@ -16,7 +16,7 @@ import java.lang.reflect.Field;
 import java.io.*;
 
 import javax.sound.sampled.*;
-
+@SuppressWarnings("unused")
 class Main {
     public static JFrame window = new JFrame("Game");
     public static JLabel textOut = new JLabel("Null");
@@ -24,7 +24,6 @@ class Main {
     public static MyPanel p;
     public static String hero = "src\\Sprites\\Hero.png";
     public static BufferedImage image;
-
     public static Container c;
 
     public static void main(String[] args) {
@@ -33,7 +32,6 @@ class Main {
         try {
             Image();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
