@@ -137,22 +137,6 @@ class Player {
     }
 }
 
-class SoundPlayer implements LineListener {
-    boolean isPlaybackCompleted;
-    InputStream inputStream = getClass().getClassLoader().getResourceAsStream("src\\music\\music1.mp3");
-    
-
-    @Override
-    public void update(LineEvent event) {
-        if (LineEvent.Type.START == event.getType()) {
-            System.out.println("Playback Started");
-        }
-        else if (LineEvent.Type.STOP == event.getType()) {
-            isPlaybackCompleted = true;
-            System.out.println("Playback Completed.");
-        }
-    }
-}
 class Hero{
     static int x = 100;
     static int y = 400;
