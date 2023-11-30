@@ -8,11 +8,13 @@ import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.nio.Buffer;
 import java.io.*;
 
 import javax.sound.sampled.*;
@@ -79,9 +81,8 @@ class Main {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
     }
     public static void Image() throws IOException{
-         image = ImageIO.read(new File(hero));
          Graphics g = p.getGraphics();
-         g.drawImage(image, 100, 100, p);
+         g.drawImage(Hero.getImage(), Hero.getX(), Hero.getY(), p);
     }
 
 }
@@ -111,5 +112,26 @@ class SoundPlayer implements LineListener {
             System.out.println("Playback Completed.");
         }
     }
+}
+class Hero{
+    static int x = 100;
+    static int y = 400;
+    static int dx = 2;
+    static int dy = 2;
+    public static BufferedImage image;
+    public static String hero = "src\\Sprites\\Hero.png";
+    public static int getX() {
+        return x;
+    }
+
+    public static int getY() {
+        return y;
+    }
+    public static BufferedImage getImage() throws IOException{
+         image = ImageIO.read(new File(hero));
+         return image;
+    }
+    
+
 }
 
