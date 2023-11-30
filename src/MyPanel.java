@@ -12,9 +12,10 @@ public class MyPanel extends JPanel{
         super.paint(g);
 
         Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(Color.RED);
+        g2.setColor(Color.BLUE);
         g2.drawRect(0, 0, 100, 100);
         g2.setColor(Color.BLUE);
         g2.fillRect(200, 0, 100, 100);
     }
+
 }
