@@ -12,6 +12,7 @@ class Main {
     public static JLabel textOut = new JLabel("Null");
     public Player player = new Player("Testing");
     public static MyPanel p;
+    public static Container c;
     
 
     public static void main(String[] args) {
@@ -36,10 +37,10 @@ class Main {
             public void keyPressed(KeyEvent e) {
                 int keyCode = e.getKeyCode();
                 switch (keyCode) {
-                    case 87: p.setLocation(p.getX(), (p.getY()-10)); break;
-                    case 65: p.setLocation(p.getX()-10, p.getY()); break;
-                    case 83: p.setLocation(p.getX(), (p.getY()+10)); break;
-                    case 68: p.setLocation(p.getX()+10, (p.getY())); break;
+                    case 87: p.setLocation(p.getX(), (p.getY() - 10)); break;
+                    case 65: p.setLocation(p.getX() - 10, p.getY()); break;
+                    case 83: p.setLocation(p.getX(), (p.getY() + 10)); break;
+                    case 68: p.setLocation(p.getX() + 10, (p.getY())); break;
                     default: break;
                 }
             }
@@ -47,7 +48,7 @@ class Main {
         window.setVisible(true);
     }
     public static void Draw(){  
-        Container c = window.getContentPane();    
+        c = window.getContentPane();    
         // set the LayoutManager
         c.setLayout(new BorderLayout());        
         p = new MyPanel();    
