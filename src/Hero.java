@@ -16,6 +16,12 @@ public class Hero {
     public Hero(int x, int y) {
         this.x = x;
         this.y = y;
+        try {
+            this.image = ImageIO.read(new File(hero));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public int getX() {
@@ -26,7 +32,7 @@ public class Hero {
         return y;
     }
     public BufferedImage getImage() throws IOException{
-        image = ImageIO.read(new File(hero));
+        System.out.println(image);
         return image;
     }
     

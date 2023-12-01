@@ -34,6 +34,7 @@ class Main {
     public static Hero hero = new Hero(100, 100);
 
     public static void main(String[] args) {
+
         windowCreator();
         Draw();
         try {
@@ -90,6 +91,7 @@ class Main {
     public static void Image() throws IOException{
         Graphics g = p.getGraphics();
         g.drawImage(hero.getImage(), hero.getX(), hero.getY(), p);
+        p.setVisible(true);
     }
 
     /**
@@ -99,6 +101,7 @@ class Main {
     public static void keyPress(int key) {
         if (key == 1) {
             p.setLocation(p.getX(), (p.getY() - 10));
+            
             if (printKeyPresses) {
                 System.out.println("W Pressed");
             }
