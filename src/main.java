@@ -19,29 +19,21 @@ import java.io.*;
 
 import javax.sound.sampled.*;
 
-//TODO: Move Classes to their own files
-
 @SuppressWarnings("unused")
 class Main {
     public static final boolean printKeyPresses = true;
     public static JFrame window = new JFrame("Game");
     public static JLabel textOut = new JLabel("Null");
     public Player player = new Player("Testing");
-    public static MyPanel p;
+    public static MyPanel mainPanel = new MyPanel();
     // public static String hero = "src\\Sprites\\Hero.png";
     public static BufferedImage image;
     public static Container c;
-    public static Hero hero = new Hero(100, 100);
+    
 
     public static void main(String[] args) {
 
-        windowCreator();
-        Draw();
-        try {
-            Image();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        windowCreator();        
 
     }
 
@@ -75,24 +67,25 @@ class Main {
                 }
             }
         });
+        window.add(mainPanel);
         window.setVisible(true);
     }
 
-    public static void Draw() {
-        c = window.getContentPane();
-        // set the LayoutManager
-        c.setLayout(new BorderLayout());
-        p = new MyPanel();
-        // add MyPanel object into container
-        c.add(p);
-        // sets close behavior; EXIT_ON_CLOSE invokes System.exit(0) on closing the
-    }
+    // public static void Draw() {
+    //     c = window.getContentPane();
+    //     // set the LayoutManager
+    //     c.setLayout(new BorderLayout());
+    //     mainPanel = new MyPanel();
+    //     // add MyPanel object into container
+    //     c.add(mainPanel);
+    //     // sets close behavior; EXIT_ON_CLOSE invokes System.exit(0) on closing the
+    // }
 
-    public static void Image() throws IOException{
-        Graphics g = p.getGraphics();
-        g.drawImage(hero.getImage(), hero.getX(), hero.getY(), p);
-        p.setVisible(true);
-    }
+    // public static void Image() throws IOException{
+    //     Graphics g = mainPanel.getGraphics();
+    //     g.drawImage(hero.getImage(), hero.getX(), hero.getY(), mainPanel);
+    //     mainPanel.setVisible(true);
+    // }
 
     /**
      * Method used for keypresses in switchcase
@@ -100,26 +93,25 @@ class Main {
      */
     public static void keyPress(int key) {
         if (key == 1) {
-            p.setLocation(p.getX(), (p.getY() - 10));
-            
+            mainPanel.setLocation(mainPanel.getX(), (mainPanel.getY() - 10));
             if (printKeyPresses) {
                 System.out.println("W Pressed");
             }
         }
         else if (key == 2) {
-            p.setLocation(p.getX() - 10, p.getY());
+            mainPanel.setLocation(mainPanel.getX() - 10, mainPanel.getY());
             if (printKeyPresses) {
                 System.out.println("A Pressed");
             }
         }
         else if (key == 3) {
-            p.setLocation(p.getX(), (p.getY() + 10));
+            mainPanel.setLocation(mainPanel.getX(), (mainPanel.getY() + 10));
             if (printKeyPresses) {
                 System.out.println("S Pressed");
             }
         }
         else if (key == 4) {
-            p.setLocation(p.getX() + 10, (p.getY()));
+            mainPanel.setLocation(mainPanel.getX() + 10, (mainPanel.getY()));
             if (printKeyPresses) {
                 System.out.println("D Pressed");
             }

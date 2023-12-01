@@ -17,7 +17,7 @@ public class Hero {
         this.x = x;
         this.y = y;
         try {
-            this.image = ImageIO.read(new File(hero));
+            Hero.image = ImageIO.read(new File(hero));
         } catch (IOException e) {
             e.printStackTrace();
         }
