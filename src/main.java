@@ -18,6 +18,9 @@ import java.nio.Buffer;
 import java.io.*;
 
 import javax.sound.sampled.*;
+
+//TODO: Move Classes to their own files
+
 @SuppressWarnings("unused")
 class Main {
     public static final boolean printKeyPresses = true;
@@ -25,9 +28,10 @@ class Main {
     public static JLabel textOut = new JLabel("Null");
     public Player player = new Player("Testing");
     public static MyPanel p;
-    public static String hero = "src\\Sprites\\Hero.png";
+    // public static String hero = "src\\Sprites\\Hero.png";
     public static BufferedImage image;
     public static Container c;
+    public static Hero hero = new Hero(100, 100);
 
     public static void main(String[] args) {
         windowCreator();
@@ -81,12 +85,11 @@ class Main {
         // add MyPanel object into container
         c.add(p);
         // sets close behavior; EXIT_ON_CLOSE invokes System.exit(0) on closing the
-        // JFrame
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
     public static void Image() throws IOException{
-         Graphics g = p.getGraphics();
-         g.drawImage(Hero.getImage(), Hero.getX(), Hero.getY(), p);
+        Graphics g = p.getGraphics();
+        g.drawImage(hero.getImage(), hero.getX(), hero.getY(), p);
     }
 
     /**
@@ -124,38 +127,5 @@ class Main {
         }
 
     }
-}
-
-class Player {
-    String name;
-    String[] inventory = new String[15];
-    int lives;
-
-    public Player(String name) {
-        this.name = name;
-        inventory[0] = "Map";
-    }
-}
-
-class Hero{
-    static int x = 100;
-    static int y = 400;
-    static int dx = 2;
-    static int dy = 2;
-    public static BufferedImage image;
-    public static String hero = "src\\Sprites\\Hero.png";
-    public static int getX() {
-        return x;
-    }
-
-    public static int getY() {
-        return y;
-    }
-    public static BufferedImage getImage() throws IOException{
-         image = ImageIO.read(new File(hero));
-         return image;
-    }
-    
-
 }
 
