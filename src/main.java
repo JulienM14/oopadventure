@@ -7,12 +7,23 @@ class main {
     public static final String[] wordBankEasy = {"APPLE", "BANANA", "PEACH", "GRAPE", "HIGHWAY", "COMPUTER","SEESAW","PIANO","ROBOT","CARROT","SCHOOL","DOOR","DOCTOR","TEACHER","CODING","WALES", "SCHOOL"};
     public static final String[] wordBankMedium = {"BOOKBAG","HIGHSCHOOL","TEXTBOOK","CERTIFICATE","TRANSPARENCY","INFORMATION","TECHNOLOGY","GRADUATE","PERIODIC","ITERATE","FEATURE","COMPONENT","QUANTUM"};
     public static final String[] wordBankHard = {"CZECHOSLOVAKIA","HYPERTEXTTRANSFERPROTOCOL","ANTIDERIVATIVE","KAZAKHSTAN","FAMILIARIZE","FLIBBERTIGIBBET","UNBISEPTIUM","RUTHERFORDIUM"};
-    Random rand = new Random();
+    public static Random rand = new Random();
+    public static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
-        
+        menu();
     }
 
-    public String wordSelector(int difficulty) {
+    public static void menu() {
+        System.out.println("Hello! Welcome to Hangman!");
+        System.out.println("Which difficulty would you like?");
+        System.out.print("Easy (1), Medium (2), Hard (3) > ");
+        int userChoice = input.nextInt();
+        String word = wordSelector(userChoice);
+        String[] brokenWord = wordBreaker(word);
+        game(brokenWord);
+    }
+
+    public static String wordSelector(int difficulty) {
         switch (difficulty) {
             case 1: return wordBankEasy[rand.nextInt(0,10)];
             case 2: return wordBankMedium[rand.nextInt(0,10)];
@@ -34,10 +45,11 @@ class main {
         return brokenWord;
     }
 
-    public void game(String[] word) {
-        for(int i = 0; i<= word.length; i++){
-            System.out.println("_ ");
+    public static void game(String[] brokenWord) {
+        for(int i = 0; i<= brokenWord.length; i++){
+            System.out.println("_ ");   
         }
+        
         
     }
 
