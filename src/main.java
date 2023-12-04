@@ -15,8 +15,8 @@ class main {
     public String wordSelector(int difficulty) {
         switch (difficulty) {
             case 1: return wordBankEasy[rand.nextInt(0,10)];
-            case 2: return wordBankMedium[rand.nextInt(0,10)]; break;
-            case 3: return wordBankHard[rand.nextInt(0,10)]; break;
+            case 2: return wordBankMedium[rand.nextInt(0,10)];
+            case 3: return wordBankHard[rand.nextInt(0,10)]; 
             default: return null;
         }
     }
@@ -34,8 +34,11 @@ class main {
         return brokenWord;
     }
 
-    public void game(String word) {
-
+    public void game(String[] word) {
+        for(int i = 0; i<= word.length; i++){
+            System.out.println("_ ");
+        }
+        
     }
 
 }
