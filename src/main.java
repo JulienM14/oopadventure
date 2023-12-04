@@ -4,9 +4,9 @@ import java.util.*;
 
 class main {
     public final static boolean debugMode = true;
-    public static final String[] wordBankEasy = {"Apple", "Banana", "Peach", "Grape", "Highway", "Computer","Seesaw","Piano","Robot","Czecholslovakia","Carrot","School","Door","Doctor","Teacher","Coding","DrPepper","Wales", "High School", "School"};
-    // public static final String[] wordBankMedium
-    // public static final String[] wordBankHard 
+    public static final String[] wordBankEasy = {"Apple", "Banana", "Peach", "Grape", "Highway", "Computer","Seesaw","Piano","Robot","Carrot","School","Door","Doctor","Teacher","Coding","Wales", "School"};
+    // public static final String[] wordBankMediumn = {"Bookbag","Highschool","Textbook","Certificate","Transparency","Information","Technology","Graduate","Periodic","Iterate","Feature","Component","Quantum"};
+    // public static final String[] wordBankHard = {"Czechoslovakia","HypertextTransferProtocol","Antiderivative","Kazakisthan","Familiarize","Flibbertigibbet","Unbiseptium","Rutherfordium"};
     Random rand = new Random();
     public static void main(String[] args) {
         
