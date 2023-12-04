@@ -4,9 +4,9 @@ import java.util.*;
 
 class main {
     public final static boolean debugMode = true;
-    public static final String[] wordBankEasy = {"Apple", "Banana", "Peach", "Grape", "Highway", "Computer","Seesaw","Piano","Robot","Carrot","School","Door","Doctor","Teacher","Coding","Wales", "School"};
-    // public static final String[] wordBankMediumn = {"Bookbag","Highschool","Textbook","Certificate","Transparency","Information","Technology","Graduate","Periodic","Iterate","Feature","Component","Quantum"};
-    // public static final String[] wordBankHard = {"Czechoslovakia","HypertextTransferProtocol","Antiderivative","Kazakisthan","Familiarize","Flibbertigibbet","Unbiseptium","Rutherfordium"};
+    public static final String[] wordBankEasy = {"APPLE", "BANANA", "PEACH", "GRAPE", "HIGHWAY", "COMPUTER","SEESAW","PIANO","ROBOT","CARROT","SCHOOL","DOOR","DOCTOR","TEACHER","CODING","WALES", "SCHOOL"};
+    public static final String[] wordBankMedium = {"BOOKBAG","HIGHSCHOOL","TEXTBOOK","CERTIFICATE","TRANSPARENCY","INFORMATION","TECHNOLOGY","GRADUATE","PERIODIC","ITERATE","FEATURE","COMPONENT","QUANTUM"};
+    public static final String[] wordBankHard = {"CZECHOSLOVAKIA","HYPERTEXTTRANSFERPROTOCOL","ANTIDERIVATIVE","KAZAKHSTAN","FAMILIARIZE","FLIBBERTIGIBBET","UNBISEPTIUM","RUTHERFORDIUM"};
     Random rand = new Random();
     public static void main(String[] args) {
         
@@ -15,8 +15,8 @@ class main {
     public String wordSelector(int difficulty) {
         switch (difficulty) {
             case 1: return wordBankEasy[rand.nextInt(0,10)];
-            // case 2: return wordBankMedium[rand.nextInt(0,10)]; break;
-            // case 3: return wordBankHard[rand.nextInt(0,10)]; break;
+            case 2: return wordBankMedium[rand.nextInt(0,10)]; break;
+            case 3: return wordBankHard[rand.nextInt(0,10)]; break;
             default: return null;
         }
     }
